@@ -1,0 +1,5 @@
+FROM mongo
+
+# This step is optional if you want to import data into the MongoDB container during setup.
+COPY data.json /data.json
+CMD mongoimport --host mongodb --db mydb --collection mycollection --type json --file /data.json --jsonArray
