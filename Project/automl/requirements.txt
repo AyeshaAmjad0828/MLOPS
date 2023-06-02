@@ -1,4 +1,6 @@
 # requirements.txt
 flaml
 pymongo
+pandas
+matplotlib
 
