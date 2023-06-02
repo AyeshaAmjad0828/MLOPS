@@ -1,12 +1,12 @@
-# server.py
+# pip install flask
 from flask import Flask, request, jsonify
 from pymongo import MongoClient
 from flaml import AutoML
 
 # Connect to the MongoDB container
-client = MongoClient('mongodb://mongodb:27017')
-db = client['mydb']
-collection = db['mycollection']
+client = MongoClient('mongodb://localhost:27017')
+db = client['Customers']
+collection = db['ChurnData']
 
 # Load the best model from the file or cloud storage
 automl = AutoML()
