@@ -3,4 +3,5 @@ flaml
 pymongo
 pandas
 matplotlib
+numpy
 
