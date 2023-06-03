@@ -10,7 +10,7 @@ from sklearn.preprocessing import LabelEncoder
 # Connect to the MongoDB container
 client = MongoClient('mongodb://localhost:27017')
 db = client['Customers']
-collection = db['churtest']
+collection = db['churntest']
 cursor = collection.find()
 data = list(cursor)
 df_test = pd.DataFrame(data)
