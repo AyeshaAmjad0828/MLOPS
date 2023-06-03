@@ -1,7 +1,0 @@
-FROM mongo:latest
-
-COPY data.csv /data.csv
-
-RUN apt-get update && apt-get install -y mongodb-clients
-
-CMD mongoimport --host mongodb --db customer --collection churn --type csv --headerline --file /data.csv

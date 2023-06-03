@@ -2,3 +2,5 @@
 flask
 pymongo
 flaml
+pandas
+sklearn

@@ -4,6 +4,7 @@ from flaml.data import get_output_from_log
 from pymongo import MongoClient
 import pymongo
 import pandas as pd
+import pickle
 import matplotlib
 matplotlib.use('Agg')  # Use the 'Agg' backend
 import matplotlib.pyplot as plt
@@ -80,7 +81,7 @@ plt.step(time_history, 1 - np.array(best_valid_loss_history), where='post')
 plt.show()
 plt.savefig(r'C:\Users\ayesha.amjad\Documents\GitHub\BigDataProject\MLOPS\Project\model\roc_auc_curve.png')  
 
-import pickle
+
 # Save the best model to a file or cloud storage for later use
 
 
