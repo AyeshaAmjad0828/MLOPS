@@ -1,5 +1,7 @@
-FROM mongo
+FROM mongo:latest
 
-# This step is optional if you want to import data into the MongoDB container during setup.
-COPY C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/archive/ChurnData.json
-CMD mongoimport --host MainMongoDB --db  --collection churn --type json --file C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/archive/ChurnData.json --jsonArray
+COPY data.csv /data.csv
+
+RUN apt-get update && apt-get install -y mongodb-clients
+
+CMD mongoimport --host mongodb --db customer --collection churn --type csv --headerline --file /data.csv
