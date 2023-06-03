@@ -8,6 +8,7 @@ import matplotlib
 matplotlib.use('Agg')  # Use the 'Agg' backend
 import matplotlib.pyplot as plt
 import numpy as np
+from sklearn.preprocessing import LabelEncoder
 
 # Connect to the MongoDB container
 client = MongoClient('mongodb://localhost:27017')
@@ -20,12 +21,20 @@ df = pd.DataFrame(data)
 #data = list(collection.find({}, {'_id': 0}))
 df = df.drop('_id', axis=1)
 df = df.drop(columns=['RowNumber', 'CustomerId', 'Surname'], axis=1)
+df[['CreditScore', 'Age', 'Tenure', 'NumOfProducts', 'HasCrCard', 'IsActiveMember']] = df[['CreditScore', 'Age', 'Tenure', 'NumOfProducts', 'HasCrCard', 'IsActiveMember']].astype(int)
+df[['Balance', 'EstimatedSalary']] = df[['Balance', 'EstimatedSalary']].astype(float)
 
 #X,y
 target_col = 'Exited'
 X=df.drop(columns=[target_col])
 y=df[target_col]
 y
+
+
+le = LabelEncoder()
+for column in X.columns:
+    if X[column].dtype == object:
+        X[column] = le.fit_transform(X[column])
 
 # Perform necessary preprocessing on the data
 automl = AutoML()
@@ -41,7 +50,7 @@ automl_settings = {
 # Train the model using the data
 automl.fit(X_train=X, y_train=y, dataframe=data, **automl_settings)
 
-# Save the best model for deploymen
+# Save the best model for deployment
 best_model = automl.model
 best_score = automl.best_loss
 print(best_model)
