@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mongodb:
-    container_name: mongotest
+    container_name: mymongo
     image: mongodb
     volumes:
       - mongodb_data:/data/db
@@ -12,21 +12,41 @@ services:
     ports:
       - 27017:27017
 
-  webserver:
-    container_name: flasktest
-    image: webserver
-    depends_on:
-      - mongodb
-    ports:
-      - 5000:5000
-    # Additional configuration for the webserver container
 
   automl:
-    container_name: automltest
+    container_name: automl
     image: automl
     depends_on:
       - mongodb
-    # Additional configuration for the AutoML container
+    ports:
+      - 8000:8000
+    volumes:
+      - "C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/automl:/app" 
+    command: python train.py
+
+
+  webserver:
+    container_name: flask
+    image: webserver
+    depends_on:
+      - mongodb
+      - automl
+    ports:
+      - 5000:5000
+    volumes:
+      - "C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/webserver:/app"  
+
+  streamlit:
+    container_name: streamlit
+    image: webpage
+    depends_on:
+      - mongodb
+      - automl
+      - webserver
+    ports:
+      - 8501:8501
+    volumes:
+      - "C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/webpage:/app"
 
 volumes:
   mongodb_data:
