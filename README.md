@@ -12,13 +12,13 @@ Before running the docker-compose, we need to build the images in our docker.
 docker pull mongo
 ```
 
-or you can build a new image by opening cmd, navigate to the Project\mongodb directory and run the following command:
+or you can build a new image by opening cmd, navigate to the Project/mongodb directory and run the following command:
 
 ```
 docker build -t mongodb .
 ```
 
-2. Build an image for automl by navigating to Project\automl directory and running the following command:
+2. Build an image for automl by navigating to Project/automl directory and running the following command:
 
 ```
 docker build -t automl .
