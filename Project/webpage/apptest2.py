@@ -4,16 +4,26 @@ import joblib
 import os
 import requests
 import json
+from pymongo import MongoClient
+import pandas as pd
 
 st.title("MLOps Pipeline")
 
 # Step 1: MongoDB Connection
 st.header("Step 1: MongoDB Connection")
-mongo_uri = st.text_input("MongoDB URI")
-database_name = st.text_input("Database Name")
-collection_name = st.text_input("Collection Name")
+mongo_uri = st.text_input("MongoDB URI", help="Enter the connection URI for your MongoDB database")
+database_name = st.text_input("Database Name", help="Enter the name of the database")
+collection_name = st.text_input("Collection Name", help="Enter the name of the collection")
 
+# test connecting to the MongoDB container
+#client = MongoClient('mongodb://localhost:27017')
+#db = client['Customers']
+#collection = db['ChurnData']
+#cursor = collection.find()
+#data = list(cursor)
+#df = pd.DataFrame(data)
 
+#st.table(df.head(10))
 
 def main():
 # Step 2: Model Training
@@ -21,11 +31,29 @@ def main():
 
 # Check if the user provided MongoDB connection details
     if mongo_uri and database_name and collection_name:
+        client = MongoClient(mongo_uri)
+        db = client[database_name]
+        collection = db[collection_name]
+        cursor = collection.find()
+        data = list(cursor)
+        df = pd.DataFrame(data)
+
+        st.table(df.head(10))
+
+
+        # Define the options for the dropdown
+        options = ["Classification", "Regression"]
+        selected_option = st.selectbox("Select an option", options)
+        st.text_input("Target Variable", help="Enter the name of target variable in double quotes")
+
         if st.button("Train Model"):
         # Step 3: Run train.py script
             subprocess.run(["python", "C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/automl/train.py", mongo_uri, database_name, collection_name])
 
             st.success("Model trained and saved successfully!")
+            if os.path.exists("C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/model/roc_auc_curve.png"):
+                image = "C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/model/roc_auc_curve.png"
+                st.image(image, caption="ROC-AUC Curve")
 
 # Step 4: Deploy Flask API
     st.header("Step 3: Deploy Trained Model - Flask API")
