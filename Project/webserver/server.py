@@ -55,7 +55,6 @@ with open(model_path, 'rb') as file:
 
 app = Flask(__name__)
 
-#@app.route('/predict', methods=['POST'])
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()

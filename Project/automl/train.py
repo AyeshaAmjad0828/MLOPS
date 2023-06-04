@@ -40,7 +40,7 @@ for column in X.columns:
 # Perform necessary preprocessing on the data
 automl = AutoML()
 automl_settings = {
-    "time_budget": 200,
+    "time_budget": 60,
     "metric": 'roc_auc',
     "task": 'classification',
     "log_file_name": 'automl.log',
