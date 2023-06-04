@@ -6,6 +6,8 @@ Clone this repository to utilize the MLOPs pipeline.
 
 Before running the docker-compose, we need to build the images in our docker. 
 
+> Note: For each docker build command, open a new terminal window
+
 1. You can either download the latest mongo image from the HUB by using:
 
 ```
@@ -48,3 +50,28 @@ docker-compose up -d
 docker ps
 ```
 
+
+
+Once all your containers are up and running, Open a new terminal window 
+
+7. Go inside streamlit bash by navigating to the webpage folder and running following command in the terminal
+
+```
+docker exec -it streamlit bash
+```
+
+8. Once you are inside bash shell, navigate to the '/app' directory where your app.py script is located
+
+```
+cd /app
+```
+
+9. Start the streamlit app by running following command 
+
+```
+streamlit run app.py
+```
+
+Streamlit will start the app, and you should see the output in the terminal, including a local URL to access the app in your browser. This is how it lokked for me:
+
+![image-20230605013744047](README.assets/image-20230605013744047.png)
