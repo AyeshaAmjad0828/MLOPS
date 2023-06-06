@@ -36,7 +36,7 @@ services:
     volumes:
       - "C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/webserver:/app"  
 
-  streamlit:
+  webpage:
     container_name: streamlit
     image: webpage
     depends_on:
