@@ -1,8 +1,25 @@
-# MLOPS
+# MLOPS - Big Data Analytics Project
+
+## Docker Containers: MongoDB, Automl, Flask API, Streamlit
+
+### Overview
+
 The objective of this project is to develop an end-to-end MLOps pipeline that leverages docker containers for scalability and portability.
 The pipeline will be hosted on a web server and connected to a webpage that allows anyone to use this MLOps pipeline as a service.
 
-Clone this repository to utilize the MLOPs pipeline. 
+The pipeline encompasses data ingestion from MongoDB database, AutoML model training using FLAML library in python, a web server for deploying the best model to serve for predictions, and finally a python script for consuming the best model API and generating predictions. Each action is hosted in a docker container of its own.
+
+### Technology Stack
+
+| Docker                                                       | MongoDB                                                      | FLAML                                                        | FLASK  API                                                   | Streamlit                                                    |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![Free Docker Icon - Download in Flat Style](https://cdn.iconscout.com/icon/free/png-256/free-docker-226091.png) | ![Free Mongodb Icon - Download in Flat Style](https://cdn.iconscout.com/icon/free/png-256/free-mongodb-5-1175140.png) | ![FLAML: A Fast and Lightweight AutoML Library - Microsoft Research](https://www.microsoft.com/en-us/research/uploads/prod/2020/02/flaml.png) | ![Free Flask Logo Icon - Download in Flat Style](https://cdn.iconscout.com/icon/free/png-256/free-flask-51-285137.png?f=webp) | ![Streamlit Logo PNG Vectors Free Download](https://seeklogo.com/images/S/streamlit-logo-B405F7E2FC-seeklogo.com.png) |
+
+
+
+
+
+Clone this repository to utilize the MLOPs pipeline for your MondoDB data. 
 
 Before running the docker-compose, we need to build the images in our docker. 
 
