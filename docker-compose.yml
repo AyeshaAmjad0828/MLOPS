@@ -45,6 +45,8 @@ services:
       - webserver
     ports:
       - 8501:8501
+    entrypoint:
+      - bash
     volumes:
       - "C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/webpage:/app"
 
