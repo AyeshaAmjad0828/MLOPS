@@ -3,8 +3,10 @@ import subprocess
 import joblib
 import os
 import requests
+import time
 import json
 from pymongo import MongoClient
+from pymongo.server_api import ServerApi
 import pandas as pd
 
 st.title("MLOps Pipeline")
@@ -16,12 +18,12 @@ database_name = st.text_input("Database Name", help="Enter the name of the datab
 collection_name = st.text_input("Collection Name", help="Enter the name of the collection")
 
 # test connecting to the MongoDB container
-#client = MongoClient('mongodb://localhost:27017')
-#db = client['Customers']
-#collection = db['ChurnData']
-#cursor = collection.find()
-#data = list(cursor)
-#df = pd.DataFrame(data)
+# client = MongoClient('mongodb://localhost:27017')
+# db = client['Customers']
+# collection = db['ChurnData']
+# cursor = collection.find()
+# data = list(cursor)
+# df = pd.DataFrame(data)
 
 #st.table(df.head(10))
 
@@ -40,11 +42,27 @@ def main():
 
         st.table(df.head(10))
 
+        mongo_params = {
+            "Client": mongo_uri,
+            "db": database_name,
+            "collection": collection_name
+        }
+        with open("mongo_params.json", 'w') as json_file:
+            json.dump(mongo_params, json_file)
+
 
         # Define the options for the dropdown
         options = ["Classification", "Regression"]
         selected_option = st.selectbox("Select an option", options)
-        st.text_input("Target Variable", help="Enter the name of target variable in double quotes")
+        target_variable = st.text_input("Target Variable", help="Enter the name of target variable in double quotes")
+        split_percent = st.number_input("Test_Train Split", min_value=0, max_value=100, step=5, value=20)
+        automl_params = {
+            "task": selected_option,
+            "target": target_variable,
+            "test_size": split_percent
+        }
+        with open("automl_params.json", 'w') as json_file:
+            json.dump(automl_params, json_file)
 
         if st.button("Train Model"):
         # Step 3: Run train.py script
