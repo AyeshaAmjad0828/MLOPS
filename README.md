@@ -1,4 +1,4 @@
-# MLOPS - Big Data Analytics Project
+# MLOPS Web app- Big Data Analytics Project
 
 ## Docker Containers: MongoDB, Automl, Flask API, Streamlit
 
@@ -17,7 +17,7 @@ The pipeline encompasses data ingestion from MongoDB database, AutoML model trai
 
 
 
-
+### Setup Instructions
 
 Clone this repository to utilize the MLOPs pipeline for your MondoDB data. 
 
