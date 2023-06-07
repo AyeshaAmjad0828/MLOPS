@@ -12,7 +12,6 @@ services:
     ports:
       - 27017:27017
 
-
   automl:
     container_name: automl
     image: automl
@@ -21,9 +20,8 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - "C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/automl:/app" 
+      - C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/automl:/app
     command: python train.py
-
 
   webserver:
     container_name: flask
@@ -34,7 +32,7 @@ services:
     ports:
       - 5000:5000
     volumes:
-      - "C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/webserver:/app"  
+      - C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/webserver:/app
 
   webpage:
     container_name: streamlit
@@ -48,7 +46,17 @@ services:
     entrypoint:
       - bash
     volumes:
-      - "C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/webpage:/app"
+      - C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/webpage:/app
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    ports:
+      - 4000:3000
+    volumes:
+      - C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS:/var/lib/grafana
+    restart: always
 
 volumes:
   mongodb_data:
+
