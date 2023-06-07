@@ -11,11 +11,15 @@ The pipeline encompasses data ingestion from MongoDB database, AutoML model trai
 
 ### Technology Stack
 
-| Docker                                                       | MongoDB                                                      | FLAML                                                        | FLASK  API                                                   | Streamlit                                                    |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![Free Docker Icon - Download in Flat Style](https://cdn.iconscout.com/icon/free/png-256/free-docker-226091.png) | ![Free Mongodb Icon - Download in Flat Style](https://cdn.iconscout.com/icon/free/png-256/free-mongodb-5-1175140.png) | ![FLAML: A Fast and Lightweight AutoML Library - Microsoft Research](https://www.microsoft.com/en-us/research/uploads/prod/2020/02/flaml.png) | ![Free Flask Logo Icon - Download in Flat Style](https://cdn.iconscout.com/icon/free/png-256/free-flask-51-285137.png?f=webp) | ![Streamlit Logo PNG Vectors Free Download](https://seeklogo.com/images/S/streamlit-logo-B405F7E2FC-seeklogo.com.png) |
+| Docker                                                       | MongoDB                                                      | FLAML                                                        | FLASK  API                                                   | Grafana                                                      | Streamlit                                                    |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![Free Docker Icon - Download in Flat Style](https://cdn.iconscout.com/icon/free/png-256/free-docker-226091.png) | ![Free Mongodb Icon - Download in Flat Style](https://cdn.iconscout.com/icon/free/png-256/free-mongodb-5-1175140.png) | ![FLAML: A Fast and Lightweight AutoML Library - Microsoft Research](https://www.microsoft.com/en-us/research/uploads/prod/2020/02/flaml.png) | ![Free Flask Logo Icon - Download in Flat Style](https://cdn.iconscout.com/icon/free/png-256/free-flask-51-285137.png?f=webp) | ![Integrating Checkmk in Grafana](https://docs.checkmk.com/latest/images/grafana_logo.png) | ![Streamlit Logo PNG Vectors Free Download](https://seeklogo.com/images/S/streamlit-logo-B405F7E2FC-seeklogo.com.png) |
 
+### Simple Workflow
 
+This video shows how the pipeline is up and running with the web application. In the video the streamlit isn't set up in a container but in my own system (to avoid complexity and improve performance), however, the YAML file should take care of streamlit app running inside a container. 
+
+<div style="max-width: 1280px"><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"><iframe src="https://asterasoftware-my.sharepoint.com/personal/ayesha_amjad_astera_com/_layouts/15/embed.aspx?UniqueId=4e5c9db2-16b1-4088-952c-0473c020efbc&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="1280" height="720" frameborder="0" scrolling="no" allowfullscreen title="BDAProject-AyeshaAmjad-20230607_232516-Meeting Recording.mp4" style="border:none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; height: 100%; max-width: 100%;"></iframe></div></div>
 
 ### Setup Instructions
 
@@ -55,7 +59,7 @@ docker build -t webserver .
 docker build -t webpage .
 ```
 
-5. Navigate to directory containing docker-compose.yml file and run the following command in the terminal
+5. Navigate to directory containing docker-compose.yml file and run the following command in the terminal. This will run all 5 docker containers on your system. 
 
 ```
 docker-compose up -d
