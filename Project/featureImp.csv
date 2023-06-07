@@ -1,0 +1,12 @@
+Feature,Importance
+CustomerId,3
+CreditScore,2
+Geography,0
+Gender,1
+Age,8
+Tenure,1
+Balance,5
+NumOfProducts,7
+HasCrCard,0
+IsActiveMember,2
+EstimatedSalary,1
