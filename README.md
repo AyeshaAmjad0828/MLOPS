@@ -1,6 +1,6 @@
 # MLOPS Web app- Big Data Analytics Project
 
-## Docker Containers: MongoDB, Automl, Flask API, Streamlit
+## Docker Containers: MongoDB, Automl, Flask API, Grafana, Streamlit
 
 ### Overview
 
