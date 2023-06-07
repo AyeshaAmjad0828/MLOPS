@@ -8,9 +8,6 @@ from pymongo import MongoClient
 import pandas as pd
 import pickle
 import json
-#import matplotlib
-#matplotlib.use('Agg')  # Use the 'Agg' backend
-import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -174,8 +171,6 @@ scatter_data.to_csv('C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS
 ## plt.ylabel('Validation Accuracy')
 ## plt.scatter(time_history, 1 - np.array(valid_loss_history))
 # #plt.step(time_history, 1 - np.array(best_valid_loss_history), where='post')
-# #plt.show()
-# #plt.savefig(r'C:\Users\ayesha.amjad\Documents\GitHub\BigDataProject\MLOPS\Project\model\roc_auc_curve.jpg')  
 
 
 # Save the best model to a file or cloud storage for later use
