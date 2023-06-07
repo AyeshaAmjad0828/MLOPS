@@ -19,9 +19,7 @@ The pipeline encompasses data ingestion from MongoDB database, AutoML model trai
 
 This video shows how the pipeline is up and running with the web application. In the video the streamlit isn't set up in a container but in my own system (to avoid complexity and improve performance), however, the YAML file should take care of streamlit app running inside a container. 
 
-
-
-<iframe src="https://asterasoftware-my.sharepoint.com/personal/ayesha_amjad_astera_com/_layouts/15/embed.aspx?UniqueId=4e5c9db2-16b1-4088-952c-0473c020efbc&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="1280" height="720" frameborder="0" scrolling="no" allowfullscreen title="BDAProject-AyeshaAmjad-20230607_232516-Meeting Recording.mp4"></iframe>
+[BDAProject-AyeshaAmjad-20230607_232516-Meeting Recording.mp4](https://asterasoftware-my.sharepoint.com/:v:/g/personal/ayesha_amjad_astera_com/EbKdXE6xFohAlSwEc8Ag77wBH-WcLZa45WMPCU3dTOFyfw?e=BfbZRP)
 
 ### Setup Instructions
 
