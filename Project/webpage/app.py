@@ -5,6 +5,7 @@ import os
 import requests
 import time
 import json
+import webbrowser
 from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 import pandas as pd
@@ -17,13 +18,6 @@ mongo_uri = st.text_input("MongoDB URI", help="Enter the connection URI for your
 database_name = st.text_input("Database Name", help="Enter the name of the database")
 collection_name = st.text_input("Collection Name", help="Enter the name of the collection")
 
-# test connecting to the MongoDB container
-# client = MongoClient('mongodb://localhost:27017')
-# db = client['Customers']
-# collection = db['ChurnData']
-# cursor = collection.find()
-# data = list(cursor)
-# df = pd.DataFrame(data)
 
 #st.table(df.head(10))
 
@@ -39,6 +33,7 @@ def main():
         cursor = collection.find()
         data = list(cursor)
         df = pd.DataFrame(data)
+        df = df.drop('_id', axis=1)
 
         st.table(df.head(10))
 
@@ -69,9 +64,10 @@ def main():
             subprocess.run(["python", "C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/automl/train.py", mongo_uri, database_name, collection_name])
 
             st.success("Model trained and saved successfully!")
-            if os.path.exists("C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/model/roc_auc_curve.png"):
-                image = "C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/model/roc_auc_curve.png"
-                st.image(image, caption="ROC-AUC Curve")
+        if st.button("Open Grafana Dahboard"):
+            #subprocess.run(["python", "C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/connect.py"])
+            open_dashboard
+            
 
 # Step 4: Deploy Flask API
     st.header("Step 3: Deploy Trained Model - Flask API")
@@ -104,7 +100,11 @@ def main():
         except:
             st.error("Invalid JSON file. Please upload a valid JSON file.")
     else:
-        st.warning("Please complete Steps 1 and 2 before proceeding to Steps 4 and 5.")
+        st.warning("Please complete Steps 1 and 2 before proceeding to Steps 3 and 4.")
+
+def open_dashboard():
+    dasboard_url = "http://localhost:4000/d/d85a1061-f41e-463e-afb6-efd6c20bbd21/performance-dasboard?orgId=1&from=1686135644877&to=1686157244877"
+    webbrowser.open_new_tab(dasboard_url)
 
 
 def make_prediction(data):

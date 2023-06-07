@@ -8,8 +8,8 @@ from pymongo import MongoClient
 import pandas as pd
 import pickle
 import json
-import matplotlib
-matplotlib.use('Agg')  # Use the 'Agg' backend
+#import matplotlib
+#matplotlib.use('Agg')  # Use the 'Agg' backend
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -40,8 +40,6 @@ df = pd.DataFrame(data)
 #df = pd.DataFrame(data)
 
 
-df[['RowNumber', 'CustomerId', 'CreditScore', 'Age', 'Tenure', 'NumOfProducts', 'HasCrCard', 'IsActiveMember']] = df[['RowNumber', 'CustomerId', 'CreditScore', 'Age', 'Tenure', 'NumOfProducts', 'HasCrCard', 'IsActiveMember']].astype(int)
-df[['Balance', 'EstimatedSalary']] = df[['Balance', 'EstimatedSalary']].astype(float)
 
 #identify and drop contant value columns
 constant_columns = [col for col in df.columns if df[col].nunique() == 1]
@@ -59,7 +57,6 @@ for col in df.columns:
 df = df.drop(sequential_columns, axis=1)
 df = df.drop('_id', axis=1)
 
-df = df.drop(columns=['CustomerId', 'Surname'], axis=1)
 
 
 #deal with missing values
