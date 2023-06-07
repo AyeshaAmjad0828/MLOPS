@@ -1,1 +1,1 @@
-{"task": "Classification", "target": "\"Exited\"", "test_size": 20}
+{"task": "Classification", "target": "Exited", "test_size": 20}

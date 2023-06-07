@@ -97,7 +97,7 @@ for column in X.columns:
         X[column] = le.fit_transform(X[column])
 
 
-#set evaluation metrics as per different tasks
+#set evaluation metrics as per different tasks and automl settings
 task = automl_params["task"].lower()
 if task == 'classification':
     metric = 'roc_auc'
@@ -120,17 +120,43 @@ automl.fit(X_train=X_train, y_train=y_train, dataframe=data, **automl_settings)
 
 # Save the best model for deployment
 best_model = automl.model
-best_score = automl.best_loss
 print(best_model)
-print(best_score)
+
+
+
+
+def map_values_to_columns(array, dataframe):
+    column_names = dataframe.columns.tolist()
+    result = {}
+    for i in range(len(column_names)):
+        result[column_names[i]] = array[i]
+    return result
+
+feature_imp = map_values_to_columns(automl.feature_importances_, X_train)
+feature_imp =pd.DataFrame(feature_imp, index=[1])
+
+t_feature_imp = feature_imp.transpose().reset_index()
+t_feature_imp.columns = ['Feature', 'Importance']
+t_feature_imp.to_csv('C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/featureImp.csv', sep=',', index=False)
 
 
 '''retrieve best config and best learner'''
-print('Best ML leaner:', automl.best_estimator)
-print('Best hyperparmeter config:', automl.best_config)
-print('Best accuracy on validation data: {0:.4g}'.format(1-automl.best_loss))
-print('Training duration of best run: {0:.4g} s'.format(automl.best_config_train_time))
+best_learner = automl.best_estimator
+learning_rate = automl.best_config["learning_rate"]
+accuracy = 1-automl.best_loss
+best_time = automl.best_config_train_time
 
+best_metrics = {
+    "accuracy": accuracy,
+    "best_learner": best_learner,
+    "best_time": best_time,
+    "learning_rate": learning_rate,
+}
+with open("C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/best_metrics.json", 'w') as json_file:
+    json.dump(best_metrics, json_file)
+
+
+#getting loss and time values from log file
 
 from flaml.data import get_output_from_log
 time_history, best_valid_loss_history, valid_loss_history, config_history, metric_history = \
@@ -138,15 +164,21 @@ time_history, best_valid_loss_history, valid_loss_history, config_history, metri
 for config in config_history:
     print(config)
 
+timehist = pd.DataFrame(time_history, columns=['time history'])
+losshist = pd.DataFrame(1 - np.array(valid_loss_history), columns=['valid loss'])
+bestlosshist = pd.DataFrame(1 - np.array(best_valid_loss_history), columns=['best valid loss'])
+scatter_data = pd.concat([timehist, losshist, bestlosshist], axis=1)
+scatter_data.to_csv('C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/LossMetrics.csv', sep=',', index=False)
+
 
 #Save best performing model graph
-plt.title('Learning Curve')
-plt.xlabel('Wall Clock Time (s)')
-plt.ylabel('Validation Accuracy')
-plt.scatter(time_history, 1 - np.array(valid_loss_history))
-plt.step(time_history, 1 - np.array(best_valid_loss_history), where='post')
-plt.show()
-plt.savefig(r'C:\Users\ayesha.amjad\Documents\GitHub\BigDataProject\MLOPS\Project\model\roc_auc_curve.jpg')  
+## plt.title('Learning Curve')
+## plt.xlabel('Wall Clock Time (s)')
+## plt.ylabel('Validation Accuracy')
+## plt.scatter(time_history, 1 - np.array(valid_loss_history))
+# #plt.step(time_history, 1 - np.array(best_valid_loss_history), where='post')
+# #plt.show()
+# #plt.savefig(r'C:\Users\ayesha.amjad\Documents\GitHub\BigDataProject\MLOPS\Project\model\roc_auc_curve.jpg')  
 
 
 # Save the best model to a file or cloud storage for later use
@@ -155,4 +187,3 @@ model_path =r'C:\Users\ayesha.amjad\Documents\GitHub\BigDataProject\MLOPS\Projec
 with open(model_path, 'wb') as file:
     pickle.dump(best_model, file)
 
-#best_model.save_model('/app/best_model')

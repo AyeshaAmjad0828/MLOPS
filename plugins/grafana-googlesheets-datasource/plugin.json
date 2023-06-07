@@ -1,0 +1,72 @@
+{
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
+  "annotations": true,
+  "backend": true,
+  "dependencies": {
+    "grafanaDependency": "\u003e=8.1.0",
+    "plugins": []
+  },
+  "executable": "gpx_sheets",
+  "id": "grafana-googlesheets-datasource",
+  "info": {
+    "author": {
+      "name": "Grafana Labs",
+      "url": "https://grafana.com"
+    },
+    "build": {
+      "time": 1685006480912,
+      "repo": "https://github.com/grafana/google-sheets-datasource",
+      "branch": "main",
+      "hash": "9d0d4415d0587a1946a059236d78e8f7e8046e7b",
+      "build": 116
+    },
+    "description": "Show data from google sheets",
+    "keywords": [
+      "google",
+      "sheets",
+      "spreadsheets",
+      "excel"
+    ],
+    "links": [
+      {
+        "name": "Website",
+        "url": "https://github.com/grafana/google-sheets-datasource"
+      }
+    ],
+    "logos": {
+      "large": "img/sheets.svg",
+      "small": "img/sheets.svg"
+    },
+    "screenshots": [
+      {
+        "name": "Average temperature dashboard example",
+        "path": "img/dashboard.png"
+      },
+      {
+        "name": "Average temperature spreadsheet example",
+        "path": "img/spreadsheet.png"
+      },
+      {
+        "name": "Average temperature table example",
+        "path": "img/table.png"
+      },
+      {
+        "name": "Average temperature graph example",
+        "path": "img/graph.png"
+      },
+      {
+        "name": "Query editor",
+        "path": "img/query-editor.png"
+      },
+      {
+        "name": "Config page - Google JWT File auth",
+        "path": "img/config-page.png"
+      }
+    ],
+    "updated": "2023-05-25",
+    "version": "1.2.0"
+  },
+  "metrics": true,
+  "name": "Google Sheets",
+  "type": "datasource"
+}
