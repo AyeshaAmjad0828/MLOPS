@@ -96,3 +96,25 @@ streamlit run app.py
 Streamlit will start the app, and you should see the output in the terminal, including a local URL to access the app in your browser. This is how it lokked for me:
 
 ![image-20230605013744047](README.assets/image-20230605013744047.png)
+
+10. This is how the web page is supposed to look like:
+
+![image-20230608005325386](README.assets/image-20230608005325386.png)
+
+
+
+
+
+
+
+11. When you click on **Open Grafana Dashboard** button, you will be redirected to http://localhost:4000/login address. 
+    This is where you can enter default credentials [username: admin, password: admin]
+
+    ![image-20230608004750138](README.assets/image-20230608004750138.png)
+
+    
+
+12. This should open up a grafana dashboard monitoring the performance of the ML model on your data, as shown below in the example:
+
+    ![image-20230608005048801](README.assets/image-20230608005048801.png)
+
