@@ -33,7 +33,6 @@ def main():
         cursor = collection.find()
         data = list(cursor)
         df = pd.DataFrame(data)
-        df = df.drop('_id', axis=1)
 
         st.table(df.head(10))
 
