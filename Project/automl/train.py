@@ -36,7 +36,8 @@ df = pd.DataFrame(data)
 #data = list(cursor)
 #df = pd.DataFrame(data)
 
-
+df['_id'] = df['_id'].astype(str)
+df = df.drop('_id', axis=1)
 
 #identify and drop contant value columns
 constant_columns = [col for col in df.columns if df[col].nunique() == 1]
@@ -52,7 +53,6 @@ for col in df.columns:
             sequential_columns.append(col)
 
 df = df.drop(sequential_columns, axis=1)
-df = df.drop('_id', axis=1)
 
 
 
@@ -80,15 +80,17 @@ X=df.drop(columns=[target_col])
 y=df[target_col]
 y
 
-#Test train split
-split_percentage = int(automl_params["test_size"])/100
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=split_percentage, random_state=42)
-
 #encoding and pre-processing
 le = LabelEncoder()
 for column in X.columns:
     if X[column].dtype == object:
         X[column] = le.fit_transform(X[column])
+
+#Test train split
+split_percentage = int(automl_params["test_size"])/100
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=split_percentage, random_state=42)
+
+
 
 
 #set evaluation metrics as per different tasks and automl settings
