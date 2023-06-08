@@ -1,1 +1,267 @@
-[{"_id":0,"CreditScore":619,"Geography":0,"Gender":0,"Age":42,"Tenure":2,"Balance":0.0,"NumOfProducts":1,"HasCrCard":1,"IsActiveMember":1,"EstimatedSalary":101348.88},{"_id":1,"CreditScore":608,"Geography":2,"Gender":0,"Age":41,"Tenure":1,"Balance":83807.86,"NumOfProducts":1,"HasCrCard":0,"IsActiveMember":1,"EstimatedSalary":112542.58},{"_id":2,"CreditScore":502,"Geography":0,"Gender":0,"Age":42,"Tenure":8,"Balance":159660.8,"NumOfProducts":3,"HasCrCard":1,"IsActiveMember":0,"EstimatedSalary":113931.57},{"_id":3,"CreditScore":699,"Geography":0,"Gender":0,"Age":39,"Tenure":1,"Balance":0.0,"NumOfProducts":2,"HasCrCard":0,"IsActiveMember":0,"EstimatedSalary":93826.63},{"_id":4,"CreditScore":850,"Geography":2,"Gender":0,"Age":43,"Tenure":2,"Balance":125510.82,"NumOfProducts":1,"HasCrCard":1,"IsActiveMember":1,"EstimatedSalary":79084.1},{"_id":5,"CreditScore":645,"Geography":2,"Gender":1,"Age":44,"Tenure":8,"Balance":113755.78,"NumOfProducts":2,"HasCrCard":1,"IsActiveMember":0,"EstimatedSalary":149756.71},{"_id":6,"CreditScore":822,"Geography":0,"Gender":1,"Age":50,"Tenure":7,"Balance":0.0,"NumOfProducts":2,"HasCrCard":1,"IsActiveMember":1,"EstimatedSalary":10062.8},{"_id":7,"CreditScore":376,"Geography":1,"Gender":0,"Age":29,"Tenure":4,"Balance":115046.74,"NumOfProducts":4,"HasCrCard":1,"IsActiveMember":0,"EstimatedSalary":119346.88},{"_id":8,"CreditScore":501,"Geography":0,"Gender":1,"Age":44,"Tenure":4,"Balance":142051.07,"NumOfProducts":2,"HasCrCard":0,"IsActiveMember":1,"EstimatedSalary":74940.5},{"_id":9,"CreditScore":684,"Geography":0,"Gender":1,"Age":27,"Tenure":2,"Balance":134603.88,"NumOfProducts":1,"HasCrCard":1,"IsActiveMember":1,"EstimatedSalary":71725.73},{"_id":10,"CreditScore":528,"Geography":0,"Gender":1,"Age":31,"Tenure":6,"Balance":102016.72,"NumOfProducts":2,"HasCrCard":0,"IsActiveMember":0,"EstimatedSalary":80181.12},{"_id":11,"CreditScore":497,"Geography":2,"Gender":1,"Age":24,"Tenure":3,"Balance":0.0,"NumOfProducts":2,"HasCrCard":1,"IsActiveMember":0,"EstimatedSalary":76390.01},{"_id":12,"CreditScore":476,"Geography":0,"Gender":0,"Age":34,"Tenure":10,"Balance":0.0,"NumOfProducts":2,"HasCrCard":1,"IsActiveMember":0,"EstimatedSalary":26260.98},{"_id":13,"CreditScore":549,"Geography":0,"Gender":0,"Age":25,"Tenure":5,"Balance":0.0,"NumOfProducts":2,"HasCrCard":0,"IsActiveMember":0,"EstimatedSalary":190857.79},{"_id":14,"CreditScore":635,"Geography":2,"Gender":0,"Age":35,"Tenure":7,"Balance":0.0,"NumOfProducts":2,"HasCrCard":1,"IsActiveMember":1,"EstimatedSalary":65951.65},{"_id":15,"CreditScore":616,"Geography":1,"Gender":1,"Age":45,"Tenure":3,"Balance":143129.41,"NumOfProducts":2,"HasCrCard":0,"IsActiveMember":1,"EstimatedSalary":64327.26},{"_id":16,"CreditScore":653,"Geography":1,"Gender":1,"Age":58,"Tenure":1,"Balance":132602.88,"NumOfProducts":1,"HasCrCard":1,"IsActiveMember":0,"EstimatedSalary":5097.67},{"_id":17,"CreditScore":549,"Geography":2,"Gender":0,"Age":24,"Tenure":9,"Balance":0.0,"NumOfProducts":2,"HasCrCard":1,"IsActiveMember":1,"EstimatedSalary":14406.41},{"_id":18,"CreditScore":587,"Geography":2,"Gender":1,"Age":45,"Tenure":6,"Balance":0.0,"NumOfProducts":1,"HasCrCard":0,"IsActiveMember":0,"EstimatedSalary":158684.81}]
+[{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68aa"
+  },
+  "CreditScore": 619,
+  "Geography": "France",
+  "Gender": "Female",
+  "Age": 42,
+  "Tenure": 2,
+  "Balance": 0,
+  "NumOfProducts": 1,
+  "HasCrCard": 1,
+  "IsActiveMember": 1,
+  "EstimatedSalary": 101348.88
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68ab"
+  },
+  "CreditScore": 608,
+  "Geography": "Spain",
+  "Gender": "Female",
+  "Age": 41,
+  "Tenure": 1,
+  "Balance": 83807.86,
+  "NumOfProducts": 1,
+  "HasCrCard": 0,
+  "IsActiveMember": 1,
+  "EstimatedSalary": 112542.58
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68ac"
+  },
+  "CreditScore": 502,
+  "Geography": "France",
+  "Gender": "Female",
+  "Age": 42,
+  "Tenure": 8,
+  "Balance": 159660.8,
+  "NumOfProducts": 3,
+  "HasCrCard": 1,
+  "IsActiveMember": 0,
+  "EstimatedSalary": 113931.57
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68ad"
+  },
+  "CreditScore": 699,
+  "Geography": "France",
+  "Gender": "Female",
+  "Age": 39,
+  "Tenure": 1,
+  "Balance": 0,
+  "NumOfProducts": 2,
+  "HasCrCard": 0,
+  "IsActiveMember": 0,
+  "EstimatedSalary": 93826.63
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68ae"
+  },
+  "CreditScore": 850,
+  "Geography": "Spain",
+  "Gender": "Female",
+  "Age": 43,
+  "Tenure": 2,
+  "Balance": 125510.82,
+  "NumOfProducts": 1,
+  "HasCrCard": 1,
+  "IsActiveMember": 1,
+  "EstimatedSalary": 79084.1
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68af"
+  },
+  "CreditScore": 645,
+  "Geography": "Spain",
+  "Gender": "Male",
+  "Age": 44,
+  "Tenure": 8,
+  "Balance": 113755.78,
+  "NumOfProducts": 2,
+  "HasCrCard": 1,
+  "IsActiveMember": 0,
+  "EstimatedSalary": 149756.71
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68b0"
+  },
+  "CreditScore": 822,
+  "Geography": "France",
+  "Gender": "Male",
+  "Age": 50,
+  "Tenure": 7,
+  "Balance": 0,
+  "NumOfProducts": 2,
+  "HasCrCard": 1,
+  "IsActiveMember": 1,
+  "EstimatedSalary": 10062.8
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68b1"
+  },
+  "CreditScore": 376,
+  "Geography": "Germany",
+  "Gender": "Female",
+  "Age": 29,
+  "Tenure": 4,
+  "Balance": 115046.74,
+  "NumOfProducts": 4,
+  "HasCrCard": 1,
+  "IsActiveMember": 0,
+  "EstimatedSalary": 119346.88
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68b2"
+  },
+  "CreditScore": 501,
+  "Geography": "France",
+  "Gender": "Male",
+  "Age": 44,
+  "Tenure": 4,
+  "Balance": 142051.07,
+  "NumOfProducts": 2,
+  "HasCrCard": 0,
+  "IsActiveMember": 1,
+  "EstimatedSalary": 74940.5
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68b3"
+  },
+  "CreditScore": 684,
+  "Geography": "France",
+  "Gender": "Male",
+  "Age": 27,
+  "Tenure": 2,
+  "Balance": 134603.88,
+  "NumOfProducts": 1,
+  "HasCrCard": 1,
+  "IsActiveMember": 1,
+  "EstimatedSalary": 71725.73
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68b4"
+  },
+  "CreditScore": 528,
+  "Geography": "France",
+  "Gender": "Male",
+  "Age": 31,
+  "Tenure": 6,
+  "Balance": 102016.72,
+  "NumOfProducts": 2,
+  "HasCrCard": 0,
+  "IsActiveMember": 0,
+  "EstimatedSalary": 80181.12
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68b5"
+  },
+  "CreditScore": 497,
+  "Geography": "Spain",
+  "Gender": "Male",
+  "Age": 24,
+  "Tenure": 3,
+  "Balance": 0,
+  "NumOfProducts": 2,
+  "HasCrCard": 1,
+  "IsActiveMember": 0,
+  "EstimatedSalary": 76390.01
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68b6"
+  },
+  "CreditScore": 476,
+  "Geography": "France",
+  "Gender": "Female",
+  "Age": 34,
+  "Tenure": 10,
+  "Balance": 0,
+  "NumOfProducts": 2,
+  "HasCrCard": 1,
+  "IsActiveMember": 0,
+  "EstimatedSalary": 26260.98
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68b7"
+  },
+  "CreditScore": 549,
+  "Geography": "France",
+  "Gender": "Female",
+  "Age": 25,
+  "Tenure": 5,
+  "Balance": 0,
+  "NumOfProducts": 2,
+  "HasCrCard": 0,
+  "IsActiveMember": 0,
+  "EstimatedSalary": 190857.79
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68b8"
+  },
+  "CreditScore": 635,
+  "Geography": "Spain",
+  "Gender": "Female",
+  "Age": 35,
+  "Tenure": 7,
+  "Balance": 0,
+  "NumOfProducts": 2,
+  "HasCrCard": 1,
+  "IsActiveMember": 1,
+  "EstimatedSalary": 65951.65
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68b9"
+  },
+  "CreditScore": 616,
+  "Geography": "Germany",
+  "Gender": "Male",
+  "Age": 45,
+  "Tenure": 3,
+  "Balance": 143129.41,
+  "NumOfProducts": 2,
+  "HasCrCard": 0,
+  "IsActiveMember": 1,
+  "EstimatedSalary": 64327.26
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68ba"
+  },
+  "CreditScore": 653,
+  "Geography": "Germany",
+  "Gender": "Male",
+  "Age": 58,
+  "Tenure": 1,
+  "Balance": 132602.88,
+  "NumOfProducts": 1,
+  "HasCrCard": 1,
+  "IsActiveMember": 0,
+  "EstimatedSalary": 5097.67
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68bb"
+  },
+  "CreditScore": 549,
+  "Geography": "Spain",
+  "Gender": "Female",
+  "Age": 24,
+  "Tenure": 9,
+  "Balance": 0,
+  "NumOfProducts": 2,
+  "HasCrCard": 1,
+  "IsActiveMember": 1,
+  "EstimatedSalary": 14406.41
+},{
+  "_id": {
+    "$oid": "6480e5a66ce9f7d860ad68bc"
+  },
+  "CreditScore": 587,
+  "Geography": "Spain",
+  "Gender": "Male",
+  "Age": 45,
+  "Tenure": 6,
+  "Balance": 0,
+  "NumOfProducts": 1,
+  "HasCrCard": 0,
+  "IsActiveMember": 0,
+  "EstimatedSalary": 158684.81
+}]

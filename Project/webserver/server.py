@@ -1,7 +1,7 @@
 # pip install flask
 from flask import Flask, request, jsonify
-from flaml import AutoML
 import pickle
+import json
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
@@ -15,16 +15,6 @@ with open(model_path, 'rb') as file:
     model = pickle.load(file)
 
 
-#df_test=pd.read_csv(r'C:\Users\ayesha.amjad\Downloads\test.csv')
-#preprocessing
-# df_test[['CreditScore', 'Age', 'Tenure', 'NumOfProducts', 'HasCrCard', 'IsActiveMember']] = df_test[['CreditScore', 'Age', 'Tenure', 'NumOfProducts', 'HasCrCard', 'IsActiveMember']].astype(int)
-# df_test[['Balance', 'EstimatedSalary']] = df_test[['Balance', 'EstimatedSalary']].astype(float)
-
-# le = LabelEncoder()
-# for column in df_test.columns:
-#     if df_test[column].dtype == object:
-#         df_test[column] = le.fit_transform(df_test[column])
-
 #predictions1 = model.predict(df_test)
 #automl = AutoML()
 #automl.load_model(model)
@@ -37,6 +27,8 @@ with open(model_path, 'rb') as file:
 #if __name__ == '__main__':
 #    app.run(host='0.0.0.0', port=5000)
 
+# with open("C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/churntest.json", "r") as json_file:
+#     churn_test = json.load(json_file)
 
 
 
@@ -46,11 +38,13 @@ app = Flask(__name__)
 def predict():
     data = request.get_json()
     data_test = pd.DataFrame(data)
+    #Dropping _id column
+    data_test['_id'] = data_test['_id'].astype(str)
+    data_test = data_test.drop('_id', axis=1)
 
     # Perform necessary preprocessing on the data
     constant_columns = [col for col in data_test.columns if data_test[col].nunique() == 1]
     data_test = data_test.drop(constant_columns, axis=1)
-
 
     #identify and drop sequential columns
     sequential_columns = []
@@ -76,8 +70,10 @@ def predict():
    
     # Make predictions using the best model
     predictions = model.predict(data_test)
-    df_pred = pd.DataFrame(predictions)
+    df_pred = pd.DataFrame(predictions, columns=["Predicted_Y"])
+
     json_pred = df_pred.to_json(orient='records')
+
 
     # Return the predictions as a JSON response
     return jsonify({'predictions': json_pred})

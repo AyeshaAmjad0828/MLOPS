@@ -19,8 +19,6 @@ database_name = st.text_input("Database Name", help="Enter the name of the datab
 collection_name = st.text_input("Collection Name", help="Enter the name of the collection")
 
 
-#st.table(df.head(10))
-
 def main():
 # Step 2: Model Training
     st.header("Step 2: Model Training")
@@ -32,7 +30,8 @@ def main():
         collection = db[collection_name]
         cursor = collection.find()
         data = list(cursor)
-        df = pd.DataFrame(data)
+        df = pd.DataFrame(data)    
+
 
         st.table(df.head(10))
 
@@ -48,7 +47,7 @@ def main():
         # Define the options for the dropdown
         options = ["Classification", "Regression"]
         selected_option = st.selectbox("Select an option", options)
-        target_variable = st.text_input("Target Variable", help="Enter the name of target variable in double quotes")
+        target_variable = st.text_input("Target Variable", help="Enter the name of target variable")
         split_percent = st.number_input("Test_Train Split", min_value=0, max_value=100, step=5, value=20)
         automl_params = {
             "task": selected_option,
@@ -63,9 +62,10 @@ def main():
             subprocess.run(["python", "C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/automl/train.py", mongo_uri, database_name, collection_name])
 
             st.success("Model trained and saved successfully!")
-        if st.button("Open Grafana Dahboard"):
+        
+        if st.button("Open Grafana Dashboard"):
+            webbrowser.open('http://localhost:4000/d/d85a1061-f41e-463e-afb6-efd6c20bbd21/performance-dasboard?orgId=1&from=1686145807022&to=1686167407022', new=2)
             #subprocess.run(["python", "C:/Users/ayesha.amjad/Documents/GitHub/BigDataProject/MLOPS/Project/connect.py"])
-            open_dashboard
             
 
 # Step 4: Deploy Flask API
@@ -101,9 +101,7 @@ def main():
     else:
         st.warning("Please complete Steps 1 and 2 before proceeding to Steps 3 and 4.")
 
-def open_dashboard():
-    dasboard_url = "http://localhost:4000/d/d85a1061-f41e-463e-afb6-efd6c20bbd21/performance-dasboard?orgId=1&from=1686135644877&to=1686157244877"
-    webbrowser.open_new_tab(dasboard_url)
+
 
 
 def make_prediction(data):
