@@ -97,6 +97,8 @@ Streamlit will start the app, and you should see the output in the terminal, inc
 
 ![image-20230605013744047](README.assets/image-20230605013744047.png)
 
+
+
 10. This is how the web page is supposed to look like:
 
 ![image-20230608005325386](README.assets/image-20230608005325386.png)
