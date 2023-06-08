@@ -95,12 +95,19 @@ def main():
                 #Display prediction results
                 if response is not None:
                     st.success("Prediction: {}".format(response["predictions"]))
+                download_button = st.download_button(
+                    label='Download Predictions',
+                    data = response["predictions"],
+                    file_name='Predictions.json',
+                    mime='application/json'
+                )
+                if download_button:
+                    st.write("Click the above button to download JSON file containing predictions")
 
         except:
             st.error("Invalid JSON file. Please upload a valid JSON file.")
     else:
         st.warning("Please complete Steps 1 and 2 before proceeding to Steps 3 and 4.")
-
 
 
 
