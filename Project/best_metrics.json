@@ -1,1 +1,1 @@
-{"accuracy": 0.8645566648867774, "best_learner": "catboost", "best_time": 1.6132464408874512, "learning_rate": 0.06233639237958607}
+{"accuracy": 0.8653305100283015, "best_learner": "catboost", "best_time": 2.4103009700775146, "learning_rate": 0.04171721859304757}
